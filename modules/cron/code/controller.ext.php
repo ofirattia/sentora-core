@@ -274,7 +274,7 @@ class module_controller extends ctrl_module
                 $rowclient = $fetchRows->fetch();
                 if ($rowclient && $rowclient['ac_enabled_in'] <> 0) {
                     $line .= "# CRON ID: " . $rowcron['ct_id_pk'] . fs_filehandler::NewLine();
-                    $line .= $rowcron['ct_timing_vc'] . " " . $restrictinfos . $rowcron['ct_fullpath_vc'] . fs_filehandler::NewLine();
+                    $line .= $rowcron['ct_timing_vc'] . " " .' cd '.dirname($rowcron['ct_fullpath_vc']).' && '. $restrictinfos . $rowcron['ct_fullpath_vc'] . fs_filehandler::NewLine();
                     $line .= "# END CRON ID: " . $rowcron['ct_id_pk'] . fs_filehandler::NewLine();
                 }
             }
